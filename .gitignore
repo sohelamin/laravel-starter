@@ -1,6 +1,7 @@
 /node_modules
 /public/storage
-/public/{css,js,build}
+/public/css
+/public/js
 /vendor
 /.idea
 Homestead.json
