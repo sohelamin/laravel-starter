@@ -178,7 +178,7 @@
         },
         ready() {
             this.getPermissions();
-            this.grantForm.role = this.roles[0].name;
+            this.grantForm.role = (this.roles[0]) ? this.roles[0].name : '';
         },
         methods: {
             getPermissions() {
