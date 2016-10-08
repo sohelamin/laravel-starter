@@ -124,7 +124,7 @@
 
                                         <div class="col-md-7">
                                             <select class="form-control" v-model="grantForm.role">
-                                                <option v-for="role in roles" value="{{ role.name }}">{{ role.label }}</option>
+                                                <option v-for="role in roles" :value="role.name">{{ role.label }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
 
                                         <div class="col-md-7">
                                             <select class="form-control" v-model="grantForm.permissions" multiple="true">
-                                                <option v-for="permission in permissions" value="{{ permission.name }}">{{ permission.label }}</option>
+                                                <option v-for="permission in permissions" :value="permission.name">{{ permission.label }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                                <button v-else type="button" class="btn btn-primary" @click.prevent="storeGrantPermission">
+                                <button type="button" class="btn btn-primary" @click.prevent="storeGrantPermission">
                                     Grant
                                 </button>
                             </div>
@@ -172,11 +172,11 @@
                 grantForm: {
                     errors: [],
                     role: '',
-                    permissions: ''
+                    permissions: []
                 }
             }
         },
-        ready() {
+        mounted() {
             this.getPermissions();
             this.grantForm.role = (this.roles[0]) ? this.roles[0].name : '';
         },

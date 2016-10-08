@@ -110,7 +110,7 @@
                 }
             }
         },
-        ready() {
+        mounted() {
             this.getRoles();
         },
         methods: {

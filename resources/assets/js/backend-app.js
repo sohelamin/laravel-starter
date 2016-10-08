@@ -16,31 +16,20 @@ const VueRouter = require('vue-router');
 
 Vue.use(VueRouter);
 
-var router = new VueRouter();
-
-var App = {};
 var Dashboard = require('./components/Dashboard.vue');
 var Users = require('./components/Users.vue');
 var Roles = require('./components/Roles.vue');
 var Permissions = require('./components/Permissions.vue');
 
-router.map({
-    '/': {
-        component: Dashboard
-    },
-    '/users': {
-        component: Users
-    },
-    '/roles': {
-        component: Roles
-    },
-    '/permissions': {
-        component: Permissions
-    }
+var router = new VueRouter({
+    routes: [
+        { path: '/', component: Dashboard },
+        { path: '/users', component: Users },
+        { path: '/roles', component: Roles },
+        { path: '/permissions', component: Permissions }
+    ]
 })
 
-// const App = new Vue({
-//     el: 'body'
-// });
-
-router.start(App, 'body')
+const app = new Vue({
+    router
+}).$mount('#app')

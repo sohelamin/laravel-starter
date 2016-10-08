@@ -86,7 +86,7 @@
 
                                         <div class="col-md-7">
                                             <select id="create-user-roles" class="form-control" v-model="form.roles" multiple="true">
-                                                <option v-for="role in roles" value="{{ role.name }}">{{ role.label }}</option>
+                                                <option v-for="role in roles" :value="role.name">{{ role.label }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                 }
             }
         },
-        ready() {
+        mounted() {
             this.getUsers();
         },
         methods: {
