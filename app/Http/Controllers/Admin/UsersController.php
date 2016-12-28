@@ -27,7 +27,7 @@ class UsersController extends Controller
             return $item;
         });
 
-        return ['roles' => $roles, 'users' => $users];
+        return $users;
     }
 
     /**
