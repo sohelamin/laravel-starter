@@ -182,7 +182,7 @@
         },
         methods: {
             getPermissions() {
-                this.$http.get('/admin/permissions').then(response => {
+                axios.get('/admin/permissions').then(response => {
                     this.roles = response.data.roles;
                     this.permissions = response.data.permissions;
                 });
@@ -206,7 +206,7 @@
             storePermission() {
                 this.form.errors = [];
 
-                this.$http.post('/admin/permissions', this.form).then(response => {
+                axios.post('/admin/permissions', this.form).then(response => {
                     this.getPermissions();
 
                     this.form.name = '';
@@ -225,7 +225,7 @@
             updatePermission() {
                 this.form.errors = [];
 
-                this.$http.put('/admin/permissions/' + this.form.id, this.form).then(response => {
+                axios.put('/admin/permissions/' + this.form.id, this.form).then(response => {
                     this.getPermissions();
 
                     this.form.name = '';
@@ -243,7 +243,7 @@
                 });
             },
             deletePermission(permission) {
-                this.$http.delete('/admin/permissions/' + permission.id).then(response => {
+                axios.delete('/admin/permissions/' + permission.id).then(response => {
                     this.getPermissions();
                 });
             },
@@ -256,7 +256,7 @@
             storeGrantPermission() {
                 this.form.errors = [];
 
-                this.$http.post('/admin/give-role-permissions', this.grantForm).then(response => {
+                axios.post('/admin/give-role-permissions', this.grantForm).then(response => {
                     this.grantForm.role = this.roles[0].name;
                     this.grantForm.permissions = [];
                     this.grantForm.errors = [];

@@ -22,7 +22,7 @@
         },
         methods: {
             getItems() {
-                this.$http.get(this.url).then(response => {
+                axios.get(this.url).then(response => {
                     this.items = response.data;
                 });
             },
@@ -42,7 +42,7 @@
                 var self = this;
                 this.errors = [];
 
-                this.$http.post(this.url, this.form).then(response => {
+                axios.post(this.url, this.form).then(response => {
                     this.getItems();
 
                     $('#modal-create-item').modal('hide');
@@ -58,7 +58,7 @@
                 var self = this;
                 this.errors = [];
 
-                this.$http.put(this.url + '/' + this.form.id, this.form).then(response => {
+                axios.put(this.url + '/' + this.form.id, this.form).then(response => {
                     this.getItems();
 
                     $('#modal-create-item').modal('hide');
@@ -71,7 +71,7 @@
                 });
             },
             deleteItem(item) {
-                this.$http.delete(this.url + '/' + item.id).then(response => {
+                axios.delete(this.url + '/' + item.id).then(response => {
                     this.getItems();
                 });
             }
