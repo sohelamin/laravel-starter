@@ -1,6 +1,6 @@
 # A Starter Project using Laravel 5 & Vue.js
 
-## Usage
+## Installation
 
 ```bash
 git clone https://github.com/sohelamin/laravel-starter.git
